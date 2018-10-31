@@ -1,0 +1,2 @@
+telemetry.addData("Left Pow", motor_left.getPower());
+telemetry.addData("Right Pow", motor_right.getPower());

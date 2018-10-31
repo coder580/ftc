@@ -1,0 +1,6 @@
+if (motor_left.getPower() == 0) {
+          motor_left.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);        
+        }
+        if (motor_right.getPower() == 0) {
+          motor_right.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);        
+        }

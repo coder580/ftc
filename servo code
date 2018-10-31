@@ -1,0 +1,37 @@
+//import
+import com.qualcomm.robotcore.hardware.Servo;
+
+//goes after public class **** extends *****
+static final double INCREMENT   = 0.01;
+    static final int    CYCLE_MS    =   50;
+    static final double MAX_POS     =  1.0;
+    static final double MIN_POS     =  0.0;  
+
+    // Define class members
+    Servo   servo;
+    double  position = (MAX_POS - MIN_POS) / 2; // Start at halfway position
+    boolean rampUp = true;
+
+//goes after public void runOpMode to assign the variable to the real thing
+servo = hardwareMap.get(Servo.class, "CharlesLee");
+
+
+
+
+//robot controls
+if (gamepad1.left_bumper) {
+                position += INCREMENT ;
+                if (position >= MAX_POS ) {
+                    position = MAX_POS;
+                    rampUp = !rampUp;   // Switch ramp direction
+                }
+            }
+            else {
+                if (gamepad1.right_bumper)
+                position -= INCREMENT ;
+                if (position <= MIN_POS ) {
+                    position = MIN_POS;
+                    rampUp = !rampUp;  // Switch ramp direction
+                }
+            }
+//ends

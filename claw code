@@ -1,0 +1,22 @@
+//imports stuff
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
+
+
+//creates the variable
+private DcMotor claw;
+
+//assignes the variable to the real thing
+claw = hardwareMap.dcMotor.get("claw");
+
+//controlls it with y and a
+if (gamepad1.y) {
+            claw.setDirection(DcMotorSimple.Direction.FORWARD);
+            claw.setPower(1);
+          } else if (gamepad1.a) {
+            claw.setDirection(DcMotorSimple.Direction.REVERSE);
+            claw.setPower(1);
+          } else {
+            claw.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+            claw.setPower(0);
+          }

@@ -1,0 +1,32 @@
+//imports
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
+
+
+private DcMotor motor_right;
+private DcMotor motor_left;
+
+//goes after public void runOpMode
+
+motor_right = hardwareMap.dcMotor.get("motor_right");
+motor_left = hardwareMap.dcMotor.get("motor_left");
+
+//moves robot with controler
+
+if (gamepad1.right_trigger == 1) {
+          motor_left.setDirection(DcMotorSimple.Direction.REVERSE);
+          motor_right.setDirection(DcMotorSimple.Direction.REVERSE);
+          motor_left.setPower(1);
+          motor_right.setPower(1);
+        } else if (gamepad1.left_trigger == 1) {
+          motor_left.setDirection(DcMotorSimple.Direction.FORWARD);
+          motor_right.setDirection(DcMotorSimple.Direction.FORWARD);
+          motor_left.setPower(1);
+          motor_right.setPower(1);
+        } else {
+        motor_left.setPower(gamepad1.left_stick_y);
+        motor_right.setPower(gamepad1.right_stick_y);
+        motor_right.setDirection(DcMotorSimple.Direction.REVERSE);
+        motor_left.setDirection(DcMotorSimple.Direction.FORWARD);
+        }
+
